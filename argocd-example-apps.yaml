@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-kustomize
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ilolicon/argocd-example-apps.git
+    targetRevision: master
+    path: kustomize-guestbook
+  destination:
+    name: minho-test
+    namespace: book
