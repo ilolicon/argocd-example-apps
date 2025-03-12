@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-helm
+  namespace: argocd
+spec:
+  project: default
+  source:
+    helm:
+      releaseName: guestbook-helm
+      valueFiles:
+        - values.yaml
+    repoURL: https://github.com/ilolicon/argocd-example-apps.git
+    targetRevision: master
+    path: helm-guestbook
+  destination:
+    name: minho-test
+    namespace: book
